@@ -48,9 +48,7 @@ module AssetSync
       raise BucketNotFound.new("#{self.config.fog_provider} Bucket: #{self.config.fog_directory} not found.") unless bucket
       # fixes: https://github.com/rumblelabs/asset_sync/issues/16
       #        (work-around for https://github.com/fog/fog/issues/596)
-      files = []
-      bucket.files.each { |f| files << f.key }
-      return files
+      []
     end
 
     def delete_file(f, remote_files_to_delete)
